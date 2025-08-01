@@ -1,5 +1,5 @@
 <?php
-// Router simple de TutoX
+// Router simple de HOUSED
 // Funciona con URLs como: index.php?page=servicios
 
 // Obtener la página solicitada

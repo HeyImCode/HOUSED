@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Perfil - TutoX</title>
+    <title>Mi Perfil - HOUSED</title>
 
     <!-- CSS base -->
 <link rel="stylesheet" href="css/stylesComponentes.css">
