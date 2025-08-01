@@ -1,0 +1,155 @@
+/*Este archivo CSS es el que modifica al navbar, header, footer y botones */
+/* Variables CSS */
+:root {
+    --color-primario: #667eea;
+    --color-secundario: #764ba2;
+    --color-texto: #333;
+    --sombra-principal: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--color-texto);
+}
+
+/* Contenedor general */
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Estilos del navbar */
+nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--sombra-principal);
+}
+
+.contenedor-navegacion {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--color-primario);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: var(--color-secundario);
+}
+
+.menu-navegacion {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.menu-navegacion li a {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+.menu-navegacion li a:hover {
+    color: var(--color-primario);
+    background: rgba(102, 126, 234, 0.1);
+}
+
+/* Estilos del footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Botones generales */
+.boton {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.boton-primario {
+    background: linear-gradient(45deg, var(--color-primario), var(--color-secundario));
+    color: white;
+}
+
+.boton-primario:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.boton-secundario {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.boton-secundario:hover {
+    background: white;
+    color: var(--color-primario);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contenedor-navegacion {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .menu-navegacion {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .botones-accion {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .seccion-principal h1 {
+        font-size: 2.5rem;
+    }
+    
+    .cuadricula-caracteristicas {
+        grid-template-columns: 1fr;
+    }
+    
+    .pasos {
+        grid-template-columns: 1fr;
+    }
+}

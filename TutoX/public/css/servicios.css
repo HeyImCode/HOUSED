@@ -1,0 +1,141 @@
+/* Estilos específicos para servicios.php */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+/* Sección principal */
+.seccion-servicios {
+    padding: 120px 0 40px;
+    text-align: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.seccion-servicios h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: aparecerDesdeAbajo 1s ease-out;
+}
+
+.seccion-servicios p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    animation: aparecerDesdeAbajo 1s ease-out 0.3s both;
+}
+
+/* Lista de servicios */
+.lista-servicios {
+    padding: 60px 0;
+}
+
+.cuadricula-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.tarjeta-servicios {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: aparecerDesdeAbajo 0.8s ease-out;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.tarjeta-servicios:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.categoria-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0 15px 0 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tarjeta-servicios h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    margin-top: 1rem;
+}
+
+.descripcion {
+    flex-grow: 1;
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.acciones {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.acciones .boton {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+/* Animaciones */
+@keyframes aparecerDesdeAbajo {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .seccion-servicios h1 {
+        font-size: 2.5rem;
+    }
+    
+    .filtros {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filtro-categoria,
+    .filtro-precio {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .cuadricula-servicios {
+        grid-template-columns: 1fr;
+    }
+    
+    .acciones {
+        flex-direction: column;
+    }
+}
