@@ -3,76 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>serivcios - HOUSED</title>
-    
-    <!-- CSS base (siempre se carga) -->
-<link rel="stylesheet" href="css/stylesComponentes.css">
-    
-    <!-- CSS específico para serivcios -->
-<link rel="stylesheet" href="css/servicios.css">
+    <title>Servicios - HOUSED</title>
+
+    <link rel="stylesheet" href="css/stylesComponentes.css">
+    <link rel="stylesheet" href="css/servicios.css">
 </head>
 <body>
-    
-    <!-- Aqui agregamos el componente del navbar -->
+
 <?php include __DIR__ . '/../componentes/navbar.php'; ?>
 
-    <!-- Sección principal -->
-    <section class="seccion-servicios">
-        <div class="contenedor">
-            <h1>Servicios Disponibles</h1>
-            <p>Encuentra el servicio que deseas usar </p>
-    </section>
+<section class="seccion-servicios">
+    <h1>Servicios Disponibles</h1>
+    <p>Encuentra el servicio que deseas usar</p>
+</section>
 
-    <!-- Lista de Servicios -->
-    <section class="lista-servicios">
-        <div class="contenedor">
-            <div class="cuadricula-servicios">
+<section class="lista-servicios">
+    <div class="contenedor">
+        <div class="cuadricula-servicios">
 
-
-
-                <!-- Servicio 1 -->
-                <div class="tarjeta-servicios">
-                    <div class="categoria-tag">Comprar</div>
+            <!-- Compra un hogar -->
+            <article class="tarjeta-servicios">
+                <div class="cabecera-tarjeta">
+                    <span class="etiqueta etiqueta--comprar">COMPRAR</span>
+                </div>
+                <div class="contenido-tarjeta">
                     <h3>Compra un hogar</h3>
-                    <p>Busca tu nuevo hogar!</p>
+                    <p>Busca tu nuevo hogar</p>
+                </div>
+                <div class="acciones">
+                    <!-- Opción A: enlace directo al mapa -->
+                    <a href="index.php?page=comprar" class="boton boton-primario">Buscar</a>
+                </div>
+            </article>
 
-                    <div class="acciones">
-                        <button class="boton boton-primario">Buscar</button>
-                    </div>
-                    
-               </div>
-
-
-
-                 <!-- Servicio 2 -->
-                <div class="tarjeta-servicios">
-                    <div class="categoria-tag">Vender</div>
+            <!-- Vende tu casa -->
+            <article class="tarjeta-servicios">
+                <div class="cabecera-tarjeta">
+                    <span class="etiqueta etiqueta--vender">VENDER</span>
+                </div>
+                <div class="contenido-tarjeta">
                     <h3>Vende tu casa</h3>
-                    <p>Publica tu casa pra vender!</p>
-
-                    <div class="acciones">
-                        <button class="boton boton-primario">Vender</button>
-                    </div>
+                    <p>Publica tu casa para vender</p>
                 </div>
+                <div class="acciones">
+                    <a href="#" class="boton boton-primario">Vender</a>
+                </div>
+            </article>
 
-
-                <!-- Servicio 3 -->
-                <div class="tarjeta-servicios">
-                    <div class="categoria-tag">Rentar</div>
+            <!-- Renta una casa -->
+            <article class="tarjeta-servicios">
+                <div class="cabecera-tarjeta">
+                    <span class="etiqueta etiqueta--rentar">RENTAR</span>
+                </div>
+                <div class="contenido-tarjeta">
                     <h3>Renta una casa</h3>
-                    <p class="descripcion">Busca una casa para rentar!</p>
-
-                    <div class="acciones">
-                        <button class="boton boton-primario">Rentar</button>
-                    </div>
- 
+                    <p>Busca una casa para rentar</p>
                 </div>
+                <div class="acciones">
+                    <a href="#" class="boton boton-primario">Rentar</a>
+                </div>
+            </article>
 
-            </div>
         </div>
-    </section>
-    
-    <!-- Aqui agregamos el componente del footer -->
+    </div>
+</section>
+
 <?php include __DIR__ . '/../componentes/footer.php'; ?>
 </body>
 </html>

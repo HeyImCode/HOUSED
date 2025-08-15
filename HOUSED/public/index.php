@@ -1,35 +1,35 @@
 <?php
-// Router simple de HOUSED
-// Funciona con URLs como: index.php?page=servicios
+// Router simple de HOUSED (usa index.php?page=xxxx)
 
-// Obtener la página solicitada
 $page = $_GET['page'] ?? 'home';
 
-// Definir las páginas disponibles
 switch ($page) {
-    case 'home':
-    case 'inicio':
-        include '../app/views/pages/index.php';
-        break;
-        
-    case 'miperfil':
-    case 'perfil':
-    case 'login':
-        include '../app/views/pages/miperfil.php';
-        break;
-        
-    case 'servicios':
-        include '../app/views/pages/servicios.php';
-        break;
-        
-    case 'faq':
-    case 'preguntas':
-        include '../app/views/pages/faq.php';
-        break;
-        
-    default:
-        // Si la página no existe, mostrar inicio
-        include '../app/views/pages/index.php';
-        break;
+  case 'home':
+  case 'inicio':
+    include __DIR__ . '/../app/views/pages/index.php';
+    break;
+
+  case 'servicios':
+    include __DIR__ . '/../app/views/pages/servicios.php';
+    break;
+
+  case 'faq':
+  case 'preguntas':
+    include __DIR__ . '/../app/views/pages/faq.php';
+    break;
+
+  case 'miperfil':
+  case 'perfil':
+    include __DIR__ . '/../app/views/pages/miperfil.php';
+    break;
+
+  case 'comprar':
+    // NUEVA página del mapa tipo Zillow
+    include __DIR__ . '/../app/views/pages/comprar.php';
+    break;
+
+  default:
+    // Si la página no existe, vuelve a inicio
+    include __DIR__ . '/../app/views/pages/index.php';
+    break;
 }
-?>
