@@ -6,11 +6,10 @@
     <title>HOUSED - Tu lugar para encontrar un hogar</title>
     
     <!-- CSS base (siempre se carga) -->
-<link rel="stylesheet" href="css/stylesComponentes.css">
+    <link rel="stylesheet" href="css/stylesComponentes.css">
 
     <!-- CSS específico para index -->
-<link rel="stylesheet" href="css/index.css">
-     
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     
@@ -23,7 +22,8 @@
             <p>La plataforma en la que puedes encontrar tu nuevo hogar y más!</p>
             <div class="botones-accion">
                 <a href="#" class="boton boton-primario">Buscar Ayuda</a>
-                <a href="#" class="boton boton-secundario">Servicios</a>
+                <!-- Actualizado: el botón Servicios ahora navega al router -->
+                <a href="index.php?page=servicios" class="boton boton-secundario" id="cta-servicios">Servicios</a>
             </div>
         </div>
     </section>
