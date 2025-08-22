@@ -1,0 +1,16 @@
+# SO / editores
+.DS_Store
+.vs/
+
+# Secretos (NO subir)
+HOUSED/config/db.php
+HOUSED/config/mail.php
+.env
+
+# Dependencias
+vendor/
+node_modules/
+
+# Imágenes locales de prueba (deja .gitkeep)
+HOUSED/public/img_casas/*
+!HOUSED/public/img_casas/.gitkeep
