@@ -18,18 +18,24 @@ switch ($page) {
     include __DIR__ . '/../app/views/pages/faq.php';
     break;
 
-  case 'miperfil':
-  case 'perfil':
+  case 'miperfil':  // Página de login/registro (si NO está logueado)
     include __DIR__ . '/../app/views/pages/miperfil.php';
     break;
 
+  case 'perfil':    // NUEVA: Perfil del usuario (si SÍ está logueado)
+    include __DIR__ . '/../app/views/pages/perfil.php';
+    break;
+
   case 'comprar':
-    // NUEVA página del mapa tipo Zillow
     include __DIR__ . '/../app/views/pages/comprar.php';
     break;
 
+  case 'registro':
+  case 'register':
+    include __DIR__ . '/../app/views/pages/register.php';
+    break;
+
   default:
-    // Si la página no existe, vuelve a inicio
     include __DIR__ . '/../app/views/pages/index.php';
     break;
 }
