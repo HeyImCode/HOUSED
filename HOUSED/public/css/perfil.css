@@ -1,0 +1,126 @@
+/* Fondo suave como servicios/faq */
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+/* Hero tipo servicios/faq CENTRADO + ANIMACIÓN */
+.seccion-perfil {
+  /* centrado perfecto como en servicios/faq */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* altura consistente para desktop; en móvil se reduce abajo */
+  min-height: 320px;
+
+  /* el padding lateral evita que el texto pegue a los bordes en móvil */
+  padding: 0 16px;
+
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+.seccion-perfil .inner {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+.seccion-perfil h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  animation: heroFade 0.6s ease-out both;
+}
+.seccion-perfil p {
+  font-size: 1.05rem;
+  opacity: 0.95;
+  animation: heroFade 0.8s ease-out both;
+}
+
+/* Contenedor principal */
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+/* Grid tipo tarjetas de servicios/faq */
+.grid-perfil {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 980px) {
+  .grid-perfil { grid-template-columns: 1fr; }
+}
+
+/* Tarjetas */
+.tarjeta-perfil {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.10);
+  padding: 20px 18px;
+  overflow: hidden;
+  animation: cardUp 0.8s ease-out;
+}
+.tarjeta-perfil.secundaria { padding: 22px 18px; }
+
+.tarjeta-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+.tarjeta-header i { font-size: 22px; color: #6a5ef0; }
+.tarjeta-header h3 { margin: 0; font-size: 1.25rem; color: #1f2937; }
+.tarjeta-header p { margin: 2px 0 0; color: #6b7280; font-size: .95rem; }
+
+/* Formulario */
+.formulario-perfil { display: flex; flex-direction: column; gap: 14px; }
+.grupo-input label {
+  display: block; font-weight: 600; color: #374151; margin: 6px 0 6px;
+}
+.input-con-icono {
+  display: flex; align-items: center; gap: 10px;
+  border: 1px solid #e5e7eb; border-radius: 10px; padding: 10px 12px;
+  background: #fafafa;
+}
+.input-con-icono i { color: #9ca3af; }
+.input-con-icono input {
+  border: 0; outline: 0; width: 100%;
+  background: transparent; font-size: 14.5px; color: #111827;
+}
+
+/* Acciones */
+.acciones { margin-top: 6px; }
+/* Reutilizamos .boton-login de miperfil.css */
+.btn-logout {
+  background: #ef4444 !important;
+  box-shadow: 0 8px 18px rgba(239, 68, 68, .3) !important;
+}
+
+/* Alerts */
+.alert{ padding: 10px 12px; border-radius: 10px; font-size: 14px; margin: 8px 0; }
+.alert.error{ background:#fde8e8; color:#991b1b; border:1px solid #fecaca; }
+.alert.success{ background:#e7f9ee; color:#065f46; border:1px solid #bbf7d0; }
+
+/* Animaciones */
+@keyframes heroFade {
+  from { opacity: 0; transform: translateY(12px) scale(.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes cardUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Motion reducido */
+@media (prefers-reduced-motion: reduce) {
+  .seccion-perfil h1, .seccion-perfil p, .tarjeta-perfil { animation: none !important; }
+}
+
+/* Responsivo: hero más bajo y títulos más chicos en móvil */
+@media (max-width: 768px) {
+  .seccion-perfil { min-height: 220px; }
+  .seccion-perfil h1 { font-size: 2.2rem; }
+}
