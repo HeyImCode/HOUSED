@@ -3,17 +3,11 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 if (session_status() === PHP_SESSION_NONE) session_start();
 
-/**
- * Cargar db.php buscando en 2 ubicaciones válidas:
- * 1) HOUSED/app/config/db.php
- * 2) HOUSED/config/db.php
- */
 $candidates = [
   dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'db.php', // app/config/db.php
   dirname(__DIR__, 3) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'db.php', // config/db.php
 ];
 foreach ($candidates as $p) { if (is_file($p)) { require_once $p; break; } }
-// Si no hay db.php, igual dejamos que cargue la vista para que no truene aquí.
 
 $errors = [];
 
@@ -23,7 +17,7 @@ if (!empty($_SESSION['user_id'])) {
   exit;
 }
 
-/* Procesar LOGIN (antes de imprimir HTML) */
+/* Procesar LOGIN */
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? 'login') === 'login') {
   $email = trim($_POST['email'] ?? '');
   $pass  = $_POST['password'] ?? '';
@@ -134,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? 'login') === '
           </div>
         </div>
 
-        <!-- Botón de login (clase que tu CSS estiliza) -->
+        <!-- Botón de login -->
         <button type="submit" class="boton-login">
           Iniciar sesión <i class="fa-solid fa-arrow-right-long"></i>
         </button>

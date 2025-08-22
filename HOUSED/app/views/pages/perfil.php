@@ -3,11 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 if (session_status() === PHP_SESSION_NONE) session_start();
 
-/**
- * Cargar db.php buscando en 2 ubicaciones válidas:
- * 1) HOUSED/app/config/db.php
- * 2) HOUSED/config/db.php
- */
+
 $candidates = [
   dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'db.php',
   dirname(__DIR__, 3) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'db.php',
