@@ -34,23 +34,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? 'login') === '
       if (!function_exists('db')) { throw new Exception('No se encontró db.php'); }
       $db = db();
 
-      // Consulta de usuario
-      $stmt = $db->prepare("SELECT id, email, nombre, password_hash FROM users WHERE email = ? LIMIT 1");
+      $stmt = $db->prepare("SELECT id, email, nombre, password_hash, role, is_active FROM users WHERE email = ? LIMIT 1");
       $stmt->bind_param('s', $email);
       $stmt->execute();
       $u = $stmt->get_result()->fetch_assoc();
 
-      if ($u && password_verify($pass, $u['password_hash'])) {
-        // Éxito → setear sesión y redirigir
+      if ($u && (int)$u['is_active'] === 1 && password_verify($pass, $u['password_hash'])) {
         session_regenerate_id(true);
-        $_SESSION['user_id'] = (int)$u['id'];
-        $_SESSION['email']   = $u['email'];
-        $_SESSION['nombre']  = $u['nombre'] ?? '';
+        $_SESSION['user_id']   = (int)$u['id'];
+        $_SESSION['email']     = $u['email'];
+        $_SESSION['nombre']    = $u['nombre'] ?? '';
+        $_SESSION['user_role'] = $u['role'] ?? 'user';
 
         header('Location: index.php?page=perfil');
         exit;
       } else {
-        $errors[] = 'Correo o contraseña incorrectos.';
+        if ($u && (int)$u['is_active'] === 0) {
+          $errors[] = 'Tu cuenta está desactivada. Contacta al administrador: admin@housed.com.';
+        } else {
+          $errors[] = 'Correo o contraseña incorrectos.';
+        }
       }
     } catch (Throwable $e) {
       $errors[] = 'Error del servidor: ' . $e->getMessage();
@@ -66,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? 'login') === '
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- CSS (rutas relativas a /public/) -->
-  <link rel="stylesheet" href="css/stylesComponentes.css">
+  <link rel="stylesheet" href="css/stylesComponentes.css?v=6">
   <link rel="stylesheet" href="css/miperfil.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -74,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? 'login') === '
 
 <?php include __DIR__ . '/../componentes/navbar.php'; ?>
 
-<!-- CONTENEDOR PRINCIPAL (coincide con miperfil.css) -->
+<!-- CONTENEDOR PRINCIPAL -->
 <div class="contenedor-login">
   <!-- Panel izquierdo -->
   <section class="seccion-bienvenida">
